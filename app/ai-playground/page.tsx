@@ -1,21 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function AIPlaygroundPage() {
   const projects = [
     {
-      title: "Super Opinion Bros",
-      description:
-        "A chaotic multiplayer opinion battle where hot takes decide your fate.",
+      title: "SUPER OPINION BROS",
+      subtitle: "Multiplayer debate game.",
       image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
     },
     {
-      title: "Lock-In Police",
-      description:
-        "AI catches you touching your phone and tries to force productivity.",
+      title: "LOCK-IN POLICE",
+      subtitle: "Phone addiction intervention.",
       image: "/thumbnails/lock_in_police.png",
       url: "https://lock-in-police.vercel.app/",
     },
@@ -27,47 +24,70 @@ export default function AIPlaygroundPage() {
         width: "100%",
         minHeight: "100vh",
         background: "#FFFFFF",
-        padding: "80px 32px",
+        padding: "48px 24px 120px",
         boxSizing: "border-box",
         fontFamily: "Arial, sans-serif",
       }}
     >
       <div
         style={{
-          maxWidth: "1100px",
+          width: "100%",
+          maxWidth: "1000px",
           margin: "0 auto",
         }}
       >
-        {/* HEADER */}
+        {/* WINDOW HEADER */}
 
-        <h1
+        <div
           style={{
-            fontSize: "88px",
-            lineHeight: 1,
-            margin: 0,
-            color: "#7A7A7A",
-            fontWeight: 700,
-            letterSpacing: "-3px",
-            textAlign: "center",
-          }}
-        >
-          Playground
-        </h1>
+            background: "#000080",
+            color: "#FFFFFF",
+            padding: "10px 14px",
 
-        <p
-          style={{
-            marginTop: "24px",
-            marginBottom: "100px",
-            textAlign: "center",
-            color: "#9A9A9A",
             fontSize: "28px",
-            lineHeight: 1.5,
+            fontWeight: 700,
+
+            borderTop: "2px solid #C0C0C0",
+            borderLeft: "2px solid #C0C0C0",
+            borderRight: "2px solid #000000",
+            borderBottom: "2px solid #000000",
+
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          A collection of experiments, games,
-          <br />
-          AI prototypes and internet ideas.
-        </p>
+          <span>AI Playground</span>
+
+          <span
+            style={{
+              fontSize: "18px",
+              opacity: 0.9,
+            }}
+          >
+            Jatin Bansal
+          </span>
+        </div>
+
+        {/* INTRO */}
+
+        <div
+          style={{
+            marginTop: "40px",
+            marginBottom: "60px",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "22px",
+              color: "#666666",
+              lineHeight: 1.6,
+            }}
+          >
+            A collection of experiments, games,
+            AI prototypes and internet ideas.
+          </div>
+        </div>
 
         {/* PROJECTS */}
 
@@ -75,110 +95,193 @@ export default function AIPlaygroundPage() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "100px",
+            gap: "40px",
           }}
         >
           {projects.map((project, index) => (
-            <a
+            <div
               key={index}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
               style={{
-                textDecoration: "none",
-                color: "inherit",
+                background: "#C0C0C0",
+
+                borderTop: "4px solid #FFFFFF",
+                borderLeft: "4px solid #FFFFFF",
+                borderRight: "4px solid #7A7A7A",
+                borderBottom: "4px solid #7A7A7A",
+
+                padding: "20px",
               }}
             >
+              {/* PROJECT HEADER */}
+
               <div
                 style={{
-                  cursor: "pointer",
+                  background: "#000080",
+                  color: "#FFFFFF",
+
+                  padding: "8px 12px",
+
+                  fontSize: "18px",
+                  fontWeight: 700,
+
+                  marginBottom: "20px",
                 }}
               >
-                {/* THUMBNAIL */}
+                {project.title}.exe
+              </div>
 
+              {/* PROJECT TITLE */}
+
+              <h2
+                style={{
+                  margin: 0,
+                  color: "#3F3F3F",
+                  fontSize: "42px",
+                  fontWeight: 700,
+                }}
+              >
+                {project.title}
+              </h2>
+
+              {/* SUBTITLE */}
+
+              <p
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "24px",
+
+                  color: "#6F6F6F",
+
+                  fontSize: "20px",
+                  lineHeight: 1.5,
+                }}
+              >
+                {project.subtitle}
+              </p>
+
+              {/* IMAGE FRAME */}
+
+              <div
+                style={{
+                  width: "100%",
+                  height: "360px",
+
+                  position: "relative",
+
+                  background: "#FFFFFF",
+
+                  borderTop: "3px solid #7A7A7A",
+                  borderLeft: "3px solid #7A7A7A",
+                  borderRight: "3px solid #FFFFFF",
+                  borderBottom: "3px solid #FFFFFF",
+
+                  overflow: "hidden",
+                }}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  priority
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+
+              {/* FOOTER */}
+
+              <div
+                style={{
+                  marginTop: "24px",
+
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
                 <div
                   style={{
-                    width: "100%",
-                    height: "560px",
-
-                    position: "relative",
-
-                    background: "#E5E5E5",
-
-                    borderTop: "10px solid #FFFFFF",
-                    borderLeft: "10px solid #FFFFFF",
-                    borderRight: "10px solid #7A7A7A",
-                    borderBottom: "10px solid #7A7A7A",
-
-                    overflow: "hidden",
-
-                    transition: "all 0.15s ease",
+                    fontSize: "16px",
+                    color: "#666666",
                   }}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    priority
-                    style={{
-                      objectFit: "cover",
-                    }}
-                  />
+                  Internet Experiment
                 </div>
 
-                {/* TITLE */}
-
-                <h2
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
-                    marginTop: "28px",
-                    marginBottom: "8px",
-
-                    color: "#555555",
-
-                    fontSize: "54px",
-                    fontWeight: 700,
+                    textDecoration: "none",
                   }}
                 >
-                  {project.title}
-                </h2>
+                  <button
+                    style={{
+                      background: "#C0C0C0",
 
-                {/* DESCRIPTION */}
+                      color: "#000000",
 
-                <p
-                  style={{
-                    margin: 0,
+                      fontSize: "18px",
+                      fontWeight: 500,
 
-                    color: "#8C8C8C",
+                      padding: "12px 28px",
 
-                    fontSize: "22px",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {project.description}
-                </p>
+                      cursor: "pointer",
+
+                      borderTop: "3px solid #FFFFFF",
+                      borderLeft: "3px solid #FFFFFF",
+                      borderRight: "3px solid #7A7A7A",
+                      borderBottom: "3px solid #7A7A7A",
+                    }}
+                    onMouseDown={(e) => {
+                      e.currentTarget.style.borderTop =
+                        "3px solid #7A7A7A";
+                      e.currentTarget.style.borderLeft =
+                        "3px solid #7A7A7A";
+                      e.currentTarget.style.borderRight =
+                        "3px solid #FFFFFF";
+                      e.currentTarget.style.borderBottom =
+                        "3px solid #FFFFFF";
+                    }}
+                    onMouseUp={(e) => {
+                      e.currentTarget.style.borderTop =
+                        "3px solid #FFFFFF";
+                      e.currentTarget.style.borderLeft =
+                        "3px solid #FFFFFF";
+                      e.currentTarget.style.borderRight =
+                        "3px solid #7A7A7A";
+                      e.currentTarget.style.borderBottom =
+                        "3px solid #7A7A7A";
+                    }}
+                  >
+                    Launch →
+                  </button>
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
 
-        {/* FOOTER */}
+        {/* BACK */}
 
         <div
           style={{
-            marginTop: "120px",
+            marginTop: "80px",
             textAlign: "center",
           }}
         >
-          <Link
+          <a
             href="/"
             style={{
-              color: "#8E8E8E",
-              fontSize: "24px",
+              color: "#6F6F6F",
+              fontSize: "20px",
               textDecoration: "underline",
             }}
           >
             ← Back Home
-          </Link>
+          </a>
         </div>
       </div>
     </main>
