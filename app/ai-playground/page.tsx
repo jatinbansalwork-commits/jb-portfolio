@@ -7,11 +7,11 @@ export default function AIPlaygroundPage() {
     {
       title: "DOODLELAB",
       subtitle:
-        "Turn rough sketches into polished visual concepts with AI-powered doodling and rapid experimentation.",
+        "Turn rough sketches into polished concepts with AI-powered doodling and rapid experimentation.",
       image: "/thumbnails/motionlab-ai.png",
       url: "https://doodlelab-ai.vercel.app/",
     },
-  
+
     {
       title: "SUPER OPINION BROS",
       subtitle:
@@ -19,7 +19,7 @@ export default function AIPlaygroundPage() {
       image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
     },
-  
+
     {
       title: "LOCK-IN POLICE",
       subtitle:
@@ -43,7 +43,7 @@ export default function AIPlaygroundPage() {
         width: "100%",
         minHeight: "100vh",
         background: "#E5E5E5",
-        padding: "48px 24px 120px",
+        padding: "40px 24px 100px",
         boxSizing: "border-box",
         fontFamily: "Arial, sans-serif",
       }}
@@ -86,15 +86,15 @@ export default function AIPlaygroundPage() {
         <div
           style={{
             textAlign: "center",
-            marginTop: "48px",
-            marginBottom: "56px",
+            marginTop: "42px",
+            marginBottom: "42px",
           }}
         >
           <p
             style={{
               fontSize: "22px",
               color: "#666",
-              lineHeight: 1.6,
+              lineHeight: 1.5,
               margin: 0,
             }}
           >
@@ -109,7 +109,7 @@ export default function AIPlaygroundPage() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "40px",
+            gap: "28px",
           }}
         >
           {projects.map((project, index) => (
@@ -123,16 +123,18 @@ export default function AIPlaygroundPage() {
                 borderRight: "3px solid #808080",
                 borderBottom: "3px solid #808080",
 
-                padding: "18px",
+                padding: "14px",
               }}
             >
+              {/* TITLE BAR */}
+
               <div
                 style={{
                   background: "#000080",
                   color: "#FFF",
 
                   padding: "10px 12px",
-                  marginBottom: "22px",
+                  marginBottom: "14px",
 
                   fontWeight: 700,
                   fontSize: "16px",
@@ -141,25 +143,30 @@ export default function AIPlaygroundPage() {
                 {project.title}.exe
               </div>
 
+              {/* TITLE */}
+
               <h2
                 style={{
                   margin: 0,
-                  fontSize: "58px",
+                  fontSize: "48px",
                   color: "#444",
                   fontWeight: 700,
+                  lineHeight: 1,
                 }}
               >
                 {project.title}
               </h2>
 
+              {/* DESCRIPTION */}
+
               <p
                 style={{
-                  marginTop: "12px",
-                  marginBottom: "20px",
+                  marginTop: "10px",
+                  marginBottom: "12px",
 
                   color: "#666",
-                  fontSize: "18px",
-                  lineHeight: 1.5,
+                  fontSize: "17px",
+                  lineHeight: 1.4,
                 }}
               >
                 {project.subtitle}
@@ -170,7 +177,7 @@ export default function AIPlaygroundPage() {
               <div
                 style={{
                   width: "100%",
-                  aspectRatio: "16 / 9",
+                  aspectRatio: "16 / 8",
 
                   position: "relative",
 
@@ -199,7 +206,7 @@ export default function AIPlaygroundPage() {
 
               <div
                 style={{
-                  marginTop: "18px",
+                  marginTop: "10px",
 
                   display: "flex",
                   justifyContent: "space-between",
@@ -209,7 +216,7 @@ export default function AIPlaygroundPage() {
                 <div
                   style={{
                     color: "#666",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   Internet Experiment
@@ -229,9 +236,9 @@ export default function AIPlaygroundPage() {
                       background: "#C0C0C0",
                       color: "#000",
 
-                      padding: "12px 26px",
+                      padding: "10px 22px",
 
-                      fontSize: "18px",
+                      fontSize: "17px",
                       cursor: "pointer",
 
                       borderTop: "2px solid #FFFFFF",
@@ -241,8 +248,6 @@ export default function AIPlaygroundPage() {
 
                       appearance: "none",
                       WebkitAppearance: "none",
-
-                      opacity: 1,
                     }}
                   >
                     Launch →
@@ -257,7 +262,7 @@ export default function AIPlaygroundPage() {
 
         <div
           style={{
-            marginTop: "80px",
+            marginTop: "60px",
             textAlign: "center",
           }}
         >
