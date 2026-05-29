@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 export default function AIPlaygroundPage() {
-  const playLaunchSound = () => {
+  const playClickSound = () => {
     const audio = new Audio("/sounds/button.mp3");
     audio.volume = 1;
     audio.play();
@@ -16,7 +16,6 @@ export default function AIPlaygroundPage() {
         "A chaotic multiplayer opinion battle where hot takes decide your fate.",
       image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
-      type: "Internet Experiment",
     },
     {
       title: "LOCK-IN POLICE",
@@ -24,7 +23,6 @@ export default function AIPlaygroundPage() {
         "AI catches you touching your phone and tries to force productivity.",
       image: "/thumbnails/lock_in_police.png",
       url: "https://lock-in-police.vercel.app/",
-      type: "Internet Experiment",
     },
   ];
 
@@ -33,90 +31,80 @@ export default function AIPlaygroundPage() {
       style={{
         width: "100%",
         minHeight: "100vh",
-        background: "#ECECEC",
-        padding: "48px 24px 120px",
+
+        background: "#F0F0F0",
+
+        padding: "60px 24px 120px",
+
         boxSizing: "border-box",
+
         fontFamily: "Arial, sans-serif",
       }}
     >
       <div
         style={{
           width: "100%",
-          maxWidth: "900px",
+          maxWidth: "1000px",
           margin: "0 auto",
         }}
       >
-        {/* WINDOW HEADER */}
+        {/* HEADER */}
 
         <div
           style={{
             background: "#000080",
-            color: "#FFFFFF",
+
+            color: "#FFF",
 
             padding: "12px 16px",
 
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
 
             borderTop: "2px solid #C0C0C0",
             borderLeft: "2px solid #C0C0C0",
-            borderRight: "2px solid #000000",
-            borderBottom: "2px solid #000000",
-
-            boxShadow: "2px 2px 0px #7A7A7A",
+            borderRight: "2px solid #000",
+            borderBottom: "2px solid #000",
           }}
         >
-          <div
+          <span
             style={{
-              fontSize: "22px",
+              fontSize: "28px",
               fontWeight: 700,
             }}
           >
-            AI Playground
-          </div>
+            AI_PLAYGROUND.EXE
+          </span>
 
-          <div
+          <span
             style={{
-              fontSize: "16px",
-              fontWeight: 700,
+              fontSize: "18px",
             }}
           >
-            Jatin Bansal
-          </div>
+            Version 1.0
+          </span>
         </div>
 
         {/* INTRO */}
 
         <div
           style={{
-            marginTop: "40px",
-            marginBottom: "50px",
+            textAlign: "center",
 
-            display: "flex",
-            justifyContent: "center",
+            marginTop: "50px",
+            marginBottom: "60px",
+
+            color: "#666",
+
+            fontSize: "22px",
+            lineHeight: 1.7,
           }}
         >
-          <p
-            style={{
-              margin: 0,
-
-              maxWidth: "700px",
-
-              textAlign: "center",
-
-              fontSize: "22px",
-              lineHeight: 1.6,
-
-              color: "#666666",
-            }}
-          >
-            A collection of experiments, games, AI prototypes and internet
-            ideas.
-          </p>
+          A collection of experiments, games,
+          AI prototypes and internet ideas.
         </div>
 
-        {/* PROJECT LIST */}
+        {/* PROJECTS */}
 
         <div
           style={{
@@ -133,20 +121,19 @@ export default function AIPlaygroundPage() {
 
                 padding: "18px",
 
-                borderTop: "4px solid #FFFFFF",
-                borderLeft: "4px solid #FFFFFF",
+                borderTop: "4px solid #FFF",
+                borderLeft: "4px solid #FFF",
                 borderRight: "4px solid #7A7A7A",
                 borderBottom: "4px solid #7A7A7A",
               }}
             >
-              {/* TITLE BAR */}
-
               <div
                 style={{
                   background: "#000080",
-                  color: "#FFFFFF",
 
-                  padding: "8px 12px",
+                  color: "#FFF",
+
+                  padding: "10px 12px",
 
                   fontSize: "18px",
                   fontWeight: 700,
@@ -157,54 +144,48 @@ export default function AIPlaygroundPage() {
                 {project.title}.exe
               </div>
 
-              {/* TITLE */}
-
               <h2
                 style={{
                   margin: 0,
 
-                  color: "#404040",
+                  fontSize: "42px",
 
-                  fontSize: "40px",
-                  fontWeight: 700,
+                  color: "#444",
                 }}
               >
                 {project.title}
               </h2>
 
-              {/* SUBTITLE */}
-
               <p
                 style={{
-                  marginTop: "12px",
-                  marginBottom: "24px",
+                  color: "#666",
 
-                  fontSize: "18px",
-                  lineHeight: 1.5,
+                  marginTop: "10px",
+                  marginBottom: "20px",
 
-                  color: "#6F6F6F",
+                  fontSize: "20px",
                 }}
               >
                 {project.subtitle}
               </p>
 
-              {/* THUMBNAIL */}
+              {/* FIXED IMAGE RATIO */}
 
               <div
                 style={{
                   width: "100%",
-                  height: "500px",
+                  aspectRatio: "16 / 10",
 
                   position: "relative",
 
-                  background: "#FFFFFF",
-
-                  overflow: "hidden",
+                  background: "#FFF",
 
                   borderTop: "3px solid #7A7A7A",
                   borderLeft: "3px solid #7A7A7A",
-                  borderRight: "3px solid #FFFFFF",
-                  borderBottom: "3px solid #FFFFFF",
+                  borderRight: "3px solid #FFF",
+                  borderBottom: "3px solid #FFF",
+
+                  overflow: "hidden",
                 }}
               >
                 <Image
@@ -218,8 +199,6 @@ export default function AIPlaygroundPage() {
                 />
               </div>
 
-              {/* FOOTER */}
-
               <div
                 style={{
                   marginTop: "20px",
@@ -229,59 +208,40 @@ export default function AIPlaygroundPage() {
                   alignItems: "center",
                 }}
               >
-                <div
+                <span
                   style={{
+                    color: "#666",
                     fontSize: "16px",
-                    color: "#666666",
                   }}
                 >
-                  {project.type}
-                </div>
+                  Internet Experiment
+                </span>
 
                 <button
                   onClick={() => {
-                    playLaunchSound();
+                    playClickSound();
 
                     setTimeout(() => {
-                      window.open(project.url, "_blank");
+                      window.open(
+                        project.url,
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
                     }, 120);
                   }}
                   style={{
                     background: "#C0C0C0",
 
-                    color: "#000000",
+                    padding: "12px 28px",
 
                     fontSize: "18px",
-                    fontWeight: 500,
-
-                    padding: "12px 24px",
 
                     cursor: "pointer",
 
-                    borderTop: "3px solid #FFFFFF",
-                    borderLeft: "3px solid #FFFFFF",
+                    borderTop: "3px solid #FFF",
+                    borderLeft: "3px solid #FFF",
                     borderRight: "3px solid #7A7A7A",
                     borderBottom: "3px solid #7A7A7A",
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.borderTop =
-                      "3px solid #7A7A7A";
-                    e.currentTarget.style.borderLeft =
-                      "3px solid #7A7A7A";
-                    e.currentTarget.style.borderRight =
-                      "3px solid #FFFFFF";
-                    e.currentTarget.style.borderBottom =
-                      "3px solid #FFFFFF";
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.borderTop =
-                      "3px solid #FFFFFF";
-                    e.currentTarget.style.borderLeft =
-                      "3px solid #FFFFFF";
-                    e.currentTarget.style.borderRight =
-                      "3px solid #7A7A7A";
-                    e.currentTarget.style.borderBottom =
-                      "3px solid #7A7A7A";
                   }}
                 >
                   Launch →
@@ -291,20 +251,18 @@ export default function AIPlaygroundPage() {
           ))}
         </div>
 
-        {/* BACK HOME */}
-
         <div
           style={{
-            marginTop: "80px",
             textAlign: "center",
+
+            marginTop: "80px",
           }}
         >
           <a
             href="/"
             style={{
-              color: "#666666",
+              color: "#666",
               fontSize: "20px",
-              textDecoration: "underline",
             }}
           >
             ← Back Home
