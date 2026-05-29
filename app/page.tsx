@@ -72,34 +72,112 @@ export default function HomePage() {
 
         <div
 
-  onClick={goToPlayground}
+{/* AI PLAYGROUND BUTTON */}
 
-  style={{
+<button
+onClick={() => {
+  playButtonSound();
 
-    width: "620px",
-    height: "120px",
-    margin: "0 auto",
-    background: "#C0C0C0",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#000",
-    fontSize: "42px",
-    fontWeight: 500,
-    cursor: "pointer",
+  setTimeout(() => {
+    window.location.href = "/ai-playground";
+  }, 120);
+}}
+style={{
+  background: "#E5E5E5",
+  color: "#000000",
 
-    borderTop: "8px solid #FFFFFF",
-    borderLeft: "8px solid #FFFFFF",
-    borderRight: "8px solid #7A7A7A",
-    borderBottom: "8px solid #7A7A7A",
-    boxShadow: "12px 12px 0 #8A8A8A",
-    userSelect: "none",
+  fontSize: "42px",
+  fontWeight: 400,
+  lineHeight: "1",
 
-  }}
+  whiteSpace: "nowrap",
 
+  paddingTop: "40px",
+  paddingBottom: "40px",
+  paddingLeft: "100px",
+  paddingRight: "100px",
+
+  borderTop: "12px solid #FFFFFF",
+  borderLeft: "12px solid #FFFFFF",
+  borderRight: "12px solid #7A7A7A",
+  borderBottom: "12px solid #7A7A7A",
+
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  boxSizing: "border-box",
+
+  cursor: "pointer",
+  userSelect: "none",
+
+  outline: "none",
+  appearance: "none",
+  WebkitAppearance: "none",
+
+  minWidth: "720px",
+
+  transition: "background 0.05s linear",
+}}
+onMouseEnter={(e) => {
+  e.currentTarget.style.background = "#D9D9D9";
+}}
+onMouseLeave={(e) => {
+  e.currentTarget.style.background = "#E5E5E5";
+
+  e.currentTarget.style.borderTop =
+    "12px solid #FFFFFF";
+  e.currentTarget.style.borderLeft =
+    "12px solid #FFFFFF";
+  e.currentTarget.style.borderRight =
+    "12px solid #7A7A7A";
+  e.currentTarget.style.borderBottom =
+    "12px solid #7A7A7A";
+
+  e.currentTarget.style.paddingTop = "40px";
+  e.currentTarget.style.paddingLeft = "100px";
+  e.currentTarget.style.paddingBottom = "40px";
+  e.currentTarget.style.paddingRight = "100px";
+}}
+onMouseDown={(e) => {
+  e.currentTarget.style.background = "#CFCFCF";
+
+  e.currentTarget.style.borderTop =
+    "12px solid #7A7A7A";
+  e.currentTarget.style.borderLeft =
+    "12px solid #7A7A7A";
+  e.currentTarget.style.borderRight =
+    "12px solid #FFFFFF";
+  e.currentTarget.style.borderBottom =
+    "12px solid #FFFFFF";
+
+  e.currentTarget.style.paddingTop = "44px";
+  e.currentTarget.style.paddingLeft = "104px";
+
+  e.currentTarget.style.paddingBottom = "36px";
+  e.currentTarget.style.paddingRight = "96px";
+}}
+onMouseUp={(e) => {
+  e.currentTarget.style.background = "#E5E5E5";
+
+  e.currentTarget.style.borderTop =
+    "12px solid #FFFFFF";
+  e.currentTarget.style.borderLeft =
+    "12px solid #FFFFFF";
+  e.currentTarget.style.borderRight =
+    "12px solid #7A7A7A";
+  e.currentTarget.style.borderBottom =
+    "12px solid #7A7A7A";
+
+  e.currentTarget.style.paddingTop = "40px";
+  e.currentTarget.style.paddingLeft = "100px";
+
+  e.currentTarget.style.paddingBottom = "40px";
+  e.currentTarget.style.paddingRight = "100px";
+}}
 >
-
-  Push Button for AI Playground
+Push Button for AI Playground
+</button>
 
 </div>
         <p
