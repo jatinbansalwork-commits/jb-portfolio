@@ -5,12 +5,21 @@ import Image from "next/image";
 export default function AIPlaygroundPage() {
   const projects = [
     {
+      title: "DOODLELAB",
+      subtitle:
+        "Turn rough sketches into polished visual concepts with AI-powered doodling and rapid experimentation.",
+      image: "/thumbnails/motionlab-ai.png",
+      url: "https://doodlelab-ai.vercel.app/",
+    },
+  
+    {
       title: "SUPER OPINION BROS",
       subtitle:
         "A chaotic multiplayer opinion battle where hot takes decide your fate.",
       image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
     },
+  
     {
       title: "LOCK-IN POLICE",
       subtitle:
@@ -33,7 +42,7 @@ export default function AIPlaygroundPage() {
       style={{
         width: "100%",
         minHeight: "100vh",
-        background: "#ffffff",
+        background: "#E5E5E5",
         padding: "48px 24px 120px",
         boxSizing: "border-box",
         fontFamily: "Arial, sans-serif",
