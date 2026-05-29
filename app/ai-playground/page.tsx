@@ -9,7 +9,7 @@ export default function AIPlaygroundPage() {
       title: "Super Opinion Bros",
       description:
         "A chaotic multiplayer opinion battle where hot takes decide your fate.",
-      image: "/thumbnails/not-a-robot.png",
+      image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
     },
     {
