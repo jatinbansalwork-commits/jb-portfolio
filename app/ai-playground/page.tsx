@@ -33,7 +33,7 @@ export default function AIPlaygroundPage() {
       style={{
         width: "100%",
         minHeight: "100vh",
-        background: "#E5E5E5",
+        background: "#ffffff",
         padding: "48px 24px 120px",
         boxSizing: "border-box",
         fontFamily: "Arial, sans-serif",
