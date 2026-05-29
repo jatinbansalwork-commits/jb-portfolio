@@ -79,13 +79,13 @@ export default function HomePage() {
               "4px 4px 0 #8A8A8A";
 
             e.currentTarget.style.borderTop =
-              "3px solid #7A7A7A";
+              "8px solid #7A7A7A";
             e.currentTarget.style.borderLeft =
-              "3px solid #7A7A7A";
+              "8px solid #7A7A7A";
             e.currentTarget.style.borderRight =
-              "3px solid #FFFFFF";
+              "8px solid #FFFFFF";
             e.currentTarget.style.borderBottom =
-              "3px solid #FFFFFF";
+              "8px solid #FFFFFF";
           }}
           onMouseUp={(e) => {
             e.currentTarget.style.transform =
@@ -94,13 +94,13 @@ export default function HomePage() {
               "10px 10px 0 #8A8A8A";
 
             e.currentTarget.style.borderTop =
-              "3px solid #FFFFFF";
+              "8px solid #FFFFFF";
             e.currentTarget.style.borderLeft =
-              "3px solid #FFFFFF";
+              "8px solid #FFFFFF";
             e.currentTarget.style.borderRight =
-              "3px solid #7A7A7A";
+              "8px solid #7A7A7A";
             e.currentTarget.style.borderBottom =
-              "3px solid #7A7A7A";
+              "8px solid #7A7A7A";
           }}
           style={{
             width: "460px",
@@ -125,7 +125,6 @@ export default function HomePage() {
             borderRight: "3px solid #7A7A7A",
             borderBottom: "3px solid #7A7A7A",
 
-            boxShadow: "10px 10px 0 #8A8A8A",
 
             userSelect: "none",
           }}
