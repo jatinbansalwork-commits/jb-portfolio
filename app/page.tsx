@@ -7,13 +7,21 @@ export default function HomePage() {
   const router = useRouter();
 
   const playButtonSound = () => {
-    try {
-      const audio = new Audio("/click.wav");
-      audio.volume = 0.5;
-      audio.play();
-    } catch (err) {
+    const audio = new Audio("/button.mp3");
+    audio.volume = 0.8;
+
+    audio.play().catch((err) => {
       console.log(err);
-    }
+    });
+  };
+
+  const playSpaceSound = () => {
+    const audio = new Audio("/space.mp3");
+    audio.volume = 0.8;
+
+    audio.play().catch((err) => {
+      console.log(err);
+    });
   };
 
   const goToPlayground = () => {
@@ -26,19 +34,17 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement;
-
       if (
         e.code === "Space" &&
-        target.tagName !== "INPUT" &&
-        target.tagName !== "TEXTAREA"
+        !(e.target instanceof HTMLInputElement) &&
+        !(e.target instanceof HTMLTextAreaElement)
       ) {
         e.preventDefault();
 
-        playButtonSound();
+        playSpaceSound();
 
         setTimeout(() => {
-          router.push("/ai-playground");
+          router.push("/portfolio");
         }, 120);
       }
     };
@@ -54,11 +60,11 @@ export default function HomePage() {
     <main
       style={{
         minHeight: "100vh",
-        background: "#E5E5E5",
+        background: "#FFFFFF",
 
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
+        alignItems: "center",
 
         fontFamily: "Arial, sans-serif",
       }}
@@ -77,9 +83,9 @@ export default function HomePage() {
             fontSize: "96px",
             fontWeight: 700,
 
-            color: "#8A8A8A",
+            color: "#8B8B8B",
 
-            textShadow: "3px 3px #FFFFFF",
+            textShadow: "4px 4px 0px #FFFFFF",
           }}
         >
           Jatin Bansal
@@ -87,18 +93,17 @@ export default function HomePage() {
 
         {/* ROLE */}
 
-        <p
+        <div
           style={{
-            marginTop: "20px",
-            marginBottom: "100px",
+            marginTop: "22px",
+            marginBottom: "90px",
 
-            color: "#8A8A8A",
-
-            fontSize: "32px",
+            fontSize: "28px",
+            color: "#8B8B8B",
           }}
         >
           Product & Motion Designer
-        </p>
+        </div>
 
         {/* AI PLAYGROUND BUTTON */}
 
@@ -205,11 +210,12 @@ export default function HomePage() {
 
         <p
           style={{
-            marginTop: "100px",
+            marginTop: "80px",
 
             color: "#9AA3B0",
 
             fontSize: "32px",
+            fontWeight: 400,
           }}
         >
           or hit spacebar for portfolio
