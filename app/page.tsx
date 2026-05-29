@@ -1,45 +1,48 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function HomePage() {
-  const playButtonSound = () => {
-    const audio = new Audio("/sounds/button.mp3");
-    audio.volume = 1;
-    audio.play();
+  const triggered = useRef(false);
+
+  const openPortfolio = () => {
+    if (triggered.current) return;
+
+    triggered.current = true;
+
+    try {
+      const audio = new Audio("/sounds/space.mp3");
+      audio.volume = 0.7;
+      audio.play().catch(() => {});
+    } catch {}
+
+    window.location.href = "https://itsjatin.framer.website/";
   };
 
-  const playSpaceSound = () => {
-    const audio = new Audio("/sounds/space.mp3");
-    audio.volume = 1;
-    audio.play();
+  const openPlayground = () => {
+    try {
+      const audio = new Audio("/sounds/button.mp3");
+      audio.volume = 0.7;
+      audio.play().catch(() => {});
+    } catch {}
+
+    window.location.href = "/ai-playground";
   };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
-        e.preventDefault();
+      if (e.code !== "Space") return;
 
-        playSpaceSound();
+      e.preventDefault();
 
-        setTimeout(() => {
-          const link = document.createElement("a");
-
-          link.href = "https://itsjatin.framer.website/";
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        }, 120);
-      }
+      openPortfolio();
     };
 
     window.addEventListener("keydown", handleKeyDown);
 
-    return () =>
+    return () => {
       window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   return (
@@ -47,96 +50,84 @@ export default function HomePage() {
       style={{
         width: "100%",
         height: "100vh",
-        background: "#F0F0F0",
-
+        overflow: "hidden",
+        background: "#E5E5E5",
         display: "flex",
-        flexDirection: "column",
-
         justifyContent: "center",
         alignItems: "center",
-
-        padding: "24px",
-
-        boxSizing: "border-box",
-
         fontFamily: "Arial, sans-serif",
       }}
     >
       <div
         style={{
           textAlign: "center",
-          marginBottom: "80px",
+          width: "100%",
+          maxWidth: "900px",
+          padding: "24px",
         }}
       >
+        {/* NAME */}
+
         <h1
           style={{
             margin: 0,
-
-            fontSize: "88px",
+            fontSize: "96px",
             fontWeight: 700,
-
-            color: "#6D6D6D",
-
-            textShadow:
-              "2px 2px 0 #FFFFFF, 4px 4px 0 #808080",
+            color: "#808080",
+            textShadow: "4px 4px 0 #ffffff",
+            lineHeight: 1,
           }}
         >
           Jatin Bansal
         </h1>
 
-        <div
+        {/* ROLE */}
+
+        <p
           style={{
-            marginTop: "20px",
-
-            fontSize: "30px",
-
-            color: "#8A8A8A",
+            marginTop: "24px",
+            marginBottom: "80px",
+            fontSize: "32px",
+            color: "#909090",
           }}
         >
           Product & Motion Designer
-        </div>
-      </div>
+        </p>
 
-      <button
-        onClick={() => {
-          playButtonSound();
+        {/* BUTTON */}
 
-          setTimeout(() => {
-            window.location.href = "/ai-playground";
-          }, 120);
-        }}
-        style={{
-          background: "#E5E5E5",
+        <button
+          onClick={openPlayground}
+          style={{
+            width: "640px",
+            maxWidth: "100%",
+            height: "120px",
+            background: "#D8D8D8",
+            fontSize: "32px",
+            cursor: "pointer",
+            border: "none",
 
-          color: "#000",
+            boxShadow: `
+              inset 4px 4px 0 #ffffff,
+              inset -4px -4px 0 #7a7a7a,
+              8px 8px 0 #7a7a7a
+            `,
+          }}
+        >
+          Push Button for AI Playground
+        </button>
 
-          fontSize: "42px",
+        {/* SPACEBAR */}
 
-          padding: "40px 100px",
-
-          minWidth: "620px",
-
-          borderTop: "12px solid #FFFFFF",
-          borderLeft: "12px solid #FFFFFF",
-          borderRight: "12px solid #7A7A7A",
-          borderBottom: "12px solid #7A7A7A",
-
-          cursor: "pointer",
-        }}
-      >
-        Launch AI Playground
-      </button>
-
-      <div
-        style={{
-          marginTop: "50px",
-
-          color: "#919EAB",
-
-          fontSize: "42px",
-        }}
-      >
-        or hit spacebar for portfolio
+        <p
+          style={{
+            marginTop: "72px",
+            fontSize: "28px",
+            color: "#9AA3B2",
+          }}
+        >
+          or hit spacebar for portfolio
+        </p>
       </div>
     </main>
   );
