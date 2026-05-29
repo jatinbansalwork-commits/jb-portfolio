@@ -6,45 +6,66 @@ import { useRouter } from "next/navigation";
 export default function HomePage() {
   const router = useRouter();
 
-  const playButtonSound = () => {
-    const audio = new Audio("/button.mp3");
-    audio.volume = 0.8;
+  const PORTFOLIO_URL = "https://itsjatin.framer.website/";
 
-    audio.play().catch((err) => {
+  // Windows-style click sound
+  const playClickSound = () => {
+    try {
+      const AudioContextClass =
+        window.AudioContext ||
+        (window as any).webkitAudioContext;
+
+      const audioContext = new AudioContextClass();
+
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      oscillator.type = "square";
+      oscillator.frequency.value = 900;
+
+      gainNode.gain.value = 0.04;
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      oscillator.start();
+
+      setTimeout(() => {
+        oscillator.stop();
+      }, 40);
+    } catch (err) {
       console.log(err);
-    });
+    }
   };
 
-  const playSpaceSound = () => {
-    const audio = new Audio("/space.mp3");
-    audio.volume = 0.8;
-
-    audio.play().catch((err) => {
-      console.log(err);
-    });
-  };
-
+  // Button Navigation
   const goToPlayground = () => {
-    playButtonSound();
+    playClickSound();
 
     setTimeout(() => {
       router.push("/ai-playground");
     }, 120);
   };
 
+  // Spacebar Navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.code === "Space" &&
-        !(e.target instanceof HTMLInputElement) &&
-        !(e.target instanceof HTMLTextAreaElement)
-      ) {
+      const target = e.target as HTMLElement;
+
+      const isTyping =
+        target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
+        target.isContentEditable;
+
+      if (isTyping) return;
+
+      if (e.code === "Space") {
         e.preventDefault();
 
-        playSpaceSound();
+        playClickSound();
 
         setTimeout(() => {
-          router.push("/portfolio");
+          window.location.href = PORTFOLIO_URL;
         }, 120);
       }
     };
@@ -54,18 +75,16 @@ export default function HomePage() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [router]);
+  }, []);
 
   return (
     <main
       style={{
         minHeight: "100vh",
         background: "#FFFFFF",
-
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-
         fontFamily: "Arial, sans-serif",
       }}
     >
@@ -79,13 +98,10 @@ export default function HomePage() {
         <h1
           style={{
             margin: 0,
-
             fontSize: "96px",
             fontWeight: 700,
-
-            color: "#8B8B8B",
-
-            textShadow: "4px 4px 0px #FFFFFF",
+            color: "#8A8A8A",
+            textShadow: "4px 4px 0 #FFFFFF",
           }}
         >
           Jatin Bansal
@@ -93,82 +109,48 @@ export default function HomePage() {
 
         {/* ROLE */}
 
-        <div
+        <p
           style={{
-            marginTop: "22px",
+            marginTop: "20px",
             marginBottom: "90px",
-
             fontSize: "28px",
-            color: "#8B8B8B",
+            color: "#8A8A8A",
           }}
         >
           Product & Motion Designer
-        </div>
+        </p>
 
-        {/* AI PLAYGROUND BUTTON */}
+        {/* PLAYGROUND BUTTON */}
 
         <button
           onClick={goToPlayground}
           style={{
             background: "#E5E5E5",
-            color: "#000000",
+            color: "#000",
 
             fontSize: "42px",
             fontWeight: 400,
-            lineHeight: "1",
-
-            whiteSpace: "nowrap",
 
             paddingTop: "40px",
             paddingBottom: "40px",
             paddingLeft: "100px",
             paddingRight: "100px",
 
+            minWidth: "720px",
+
             borderTop: "12px solid #FFFFFF",
             borderLeft: "12px solid #FFFFFF",
             borderRight: "12px solid #7A7A7A",
             borderBottom: "12px solid #7A7A7A",
 
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-
-            boxSizing: "border-box",
-
             cursor: "pointer",
-            userSelect: "none",
 
-            outline: "none",
             appearance: "none",
             WebkitAppearance: "none",
 
-            minWidth: "720px",
-
-            transition: "background 0.05s linear",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#D9D9D9";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#E5E5E5";
-
-            e.currentTarget.style.borderTop =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderLeft =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderRight =
-              "12px solid #7A7A7A";
-            e.currentTarget.style.borderBottom =
-              "12px solid #7A7A7A";
-
-            e.currentTarget.style.paddingTop = "40px";
-            e.currentTarget.style.paddingLeft = "100px";
-            e.currentTarget.style.paddingBottom = "40px";
-            e.currentTarget.style.paddingRight = "100px";
+            userSelect: "none",
           }}
           onMouseDown={(e) => {
-            e.currentTarget.style.background = "#CFCFCF";
-
             e.currentTarget.style.borderTop =
               "12px solid #7A7A7A";
             e.currentTarget.style.borderLeft =
@@ -177,16 +159,8 @@ export default function HomePage() {
               "12px solid #FFFFFF";
             e.currentTarget.style.borderBottom =
               "12px solid #FFFFFF";
-
-            e.currentTarget.style.paddingTop = "44px";
-            e.currentTarget.style.paddingLeft = "104px";
-
-            e.currentTarget.style.paddingBottom = "36px";
-            e.currentTarget.style.paddingRight = "96px";
           }}
           onMouseUp={(e) => {
-            e.currentTarget.style.background = "#E5E5E5";
-
             e.currentTarget.style.borderTop =
               "12px solid #FFFFFF";
             e.currentTarget.style.borderLeft =
@@ -195,12 +169,6 @@ export default function HomePage() {
               "12px solid #7A7A7A";
             e.currentTarget.style.borderBottom =
               "12px solid #7A7A7A";
-
-            e.currentTarget.style.paddingTop = "40px";
-            e.currentTarget.style.paddingLeft = "100px";
-
-            e.currentTarget.style.paddingBottom = "40px";
-            e.currentTarget.style.paddingRight = "100px";
           }}
         >
           Push Button for AI Playground
@@ -211,11 +179,8 @@ export default function HomePage() {
         <p
           style={{
             marginTop: "80px",
-
-            color: "#9AA3B0",
-
             fontSize: "32px",
-            fontWeight: 400,
+            color: "#9AA3B0",
           }}
         >
           or hit spacebar for portfolio
