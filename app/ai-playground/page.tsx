@@ -6,164 +6,181 @@ import Link from "next/link";
 export default function AIPlaygroundPage() {
   const projects = [
     {
+      title: "Super Opinion Bros",
+      description:
+        "A chaotic multiplayer opinion battle where hot takes decide your fate.",
       image: "/thumbnails/not-a-robot.png",
-      page: "/not-a-robot",
+      url: "https://super-opinion-bros.vercel.app/",
     },
     {
+      title: "Lock-In Police",
+      description:
+        "AI catches you touching your phone and tries to force productivity.",
       image: "/thumbnails/lock_in_police.png",
-      page: "/projects/project-2",
-    },
-    {
-      image: "/thumbnails/project-3.png",
-      page: "/projects/project-3",
-    },
-    {
-      image: "/thumbnails/project-4.png",
-      page: "/projects/project-4",
-    },
-    {
-      image: "/thumbnails/project-5.png",
-      page: "/projects/project-5",
-    },
-    {
-      image: "/thumbnails/project-6.png",
-      page: "/projects/project-6",
-    },
-    {
-      image: "/thumbnails/project-7.png",
-      page: "/projects/project-7",
-    },
-    {
-      image: "/thumbnails/project-8.png",
-      page: "/projects/project-8",
-    },
-    {
-      image: "/thumbnails/project-9.png",
-      page: "/projects/project-9",
-    },
-    {
-      image: "/thumbnails/project-10.png",
-      page: "/projects/project-10",
+      url: "https://lock-in-police.vercel.app/",
     },
   ];
 
   return (
     <main
       style={{
-        background: "#262FF6",
         width: "100%",
-        height: "100vh",
-        overflow: "hidden",
+        minHeight: "100vh",
+        background: "#FFFFFF",
+        padding: "80px 32px",
+        boxSizing: "border-box",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "30% 40% 30%",
-          width: "100%",
-          height: "100vh",
+          maxWidth: "1100px",
+          margin: "0 auto",
         }}
       >
-        {/* LEFT PANEL */}
-        <section
+        {/* HEADER */}
+
+        <h1
           style={{
-            borderRight: "1px solid rgba(255,255,255,0.1)",
-            padding: "32px",
-            position: "relative",
+            fontSize: "88px",
+            lineHeight: 1,
+            margin: 0,
+            color: "#7A7A7A",
+            fontWeight: 700,
+            letterSpacing: "-3px",
+            textAlign: "center",
           }}
         >
-          <Link
-            href="/"
-            style={{
-              color: "white",
-              fontSize: "22px",
-              textDecoration: "underline",
-              fontWeight: 500,
-            }}
-          >
-            Back
-          </Link>
-        </section>
+          Playground
+        </h1>
 
-        {/* CENTER PANEL */}
-        <section
+        <p
           style={{
-            height: "100vh",
-            overflowY: "scroll",
-            padding: "40px 24px 120px",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
+            marginTop: "24px",
+            marginBottom: "100px",
+            textAlign: "center",
+            color: "#9A9A9A",
+            fontSize: "28px",
+            lineHeight: 1.5,
           }}
-          className="hide-scrollbar"
         >
-          <h1
-            style={{
-              color: "white",
-              fontSize: "72px",
-              lineHeight: "72px",
-              marginTop: "0",
-              marginBottom: "40px",
-              fontWeight: 600,
-            }}
-          >
-            AI Playground
-          </h1>
+          A collection of experiments, games,
+          <br />
+          AI prototypes and internet ideas.
+        </p>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "24px",
-            }}
-          >
-            {projects.map((project, index) => (
-              <Link
-                key={index}
-                href={project.page}
+        {/* PROJECTS */}
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "100px",
+          }}
+        >
+          {projects.map((project, index) => (
+            <a
+              key={index}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <div
                 style={{
-                  textDecoration: "none",
+                  cursor: "pointer",
                 }}
               >
+                {/* THUMBNAIL */}
+
                 <div
                   style={{
                     width: "100%",
-                    height: "320px",
-                    borderRadius: "24px",
-                    overflow: "hidden",
+                    height: "560px",
+
                     position: "relative",
-                    cursor: "pointer",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    transition: "0.3s ease",
-                    background: "rgba(255,255,255,0.08)",
+
+                    background: "#E5E5E5",
+
+                    borderTop: "10px solid #FFFFFF",
+                    borderLeft: "10px solid #FFFFFF",
+                    borderRight: "10px solid #7A7A7A",
+                    borderBottom: "10px solid #7A7A7A",
+
+                    overflow: "hidden",
+
+                    transition: "all 0.15s ease",
                   }}
                 >
                   <Image
                     src={project.image}
-                    alt={`project-${index}`}
+                    alt={project.title}
                     fill
+                    priority
                     style={{
                       objectFit: "cover",
                     }}
                   />
                 </div>
-              </Link>
-            ))}
-          </div>
-        </section>
 
-        {/* RIGHT PANEL */}
-        <section
+                {/* TITLE */}
+
+                <h2
+                  style={{
+                    marginTop: "28px",
+                    marginBottom: "8px",
+
+                    color: "#555555",
+
+                    fontSize: "54px",
+                    fontWeight: 700,
+                  }}
+                >
+                  {project.title}
+                </h2>
+
+                {/* DESCRIPTION */}
+
+                <p
+                  style={{
+                    margin: 0,
+
+                    color: "#8C8C8C",
+
+                    fontSize: "22px",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {project.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* FOOTER */}
+
+        <div
           style={{
-            borderLeft: "1px solid rgba(255,255,255,0.1)",
+            marginTop: "120px",
+            textAlign: "center",
           }}
-        />
+        >
+          <Link
+            href="/"
+            style={{
+              color: "#8E8E8E",
+              fontSize: "24px",
+              textDecoration: "underline",
+            }}
+          >
+            ← Back Home
+          </Link>
+        </div>
       </div>
-
-      <style jsx global>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </main>
   );
 }

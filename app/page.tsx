@@ -3,16 +3,8 @@
 import { useEffect } from "react";
 
 export default function HomePage() {
-  /* ---------------- SOUNDS ---------------- */
-
   const playButtonSound = () => {
     const audio = new Audio("/sounds/button.mp3");
-    audio.volume = 1;
-    audio.play();
-  };
-
-  const playClickSound = () => {
-    const audio = new Audio("/sounds/click.mp3");
     audio.volume = 1;
     audio.play();
   };
@@ -22,8 +14,6 @@ export default function HomePage() {
     audio.volume = 1;
     audio.play();
   };
-
-  /* ---------------- SPACEBAR ---------------- */
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -54,74 +44,67 @@ export default function HomePage() {
       style={{
         width: "100%",
         height: "100vh",
-
         background: "#FFFFFF",
-
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-
         overflow: "hidden",
-
-        fontFamily:
-          '"MS Sans Serif", Tahoma, Verdana, Arial, sans-serif',
+        padding: "24px",
+        boxSizing: "border-box",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-
           alignItems: "center",
-          justifyContent: "center",
-
           textAlign: "center",
-
-          gap: "48px",
+          width: "100%",
+          maxWidth: "1200px",
         }}
       >
-        {/* TITLE */}
+        {/* NAME */}
 
-        <div>
-          <h1
-            style={{
-              margin: 0,
+        <h1
+          style={{
+            margin: 0,
+            color: "#7A7A7A",
+            fontSize: "92px",
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: "-3px",
 
-              fontSize: "86px",
-              fontWeight: 700,
+            textShadow: `
+              2px 2px 0 #FFFFFF,
+              4px 4px 0 #BDBDBD
+            `,
+          }}
+        >
+          Jatin Bansal
+        </h1>
 
-              letterSpacing: "-3px",
+        {/* DESIGNATION */}
 
-              color: "#808080",
+        <div
+          style={{
+            marginTop: "20px",
+            marginBottom: "80px",
 
-              textShadow: `
-                1px 1px 0 #FFFFFF,
-                -1px -1px 0 #808080
-              `,
-            }}
-          >
-            Jatin Bansal
-          </h1>
+            color: "#8E8E8E",
 
-          <div
-            style={{
-              marginTop: "14px",
+            fontSize: "34px",
+            fontWeight: 400,
 
-              fontSize: "28px",
-              fontWeight: 400,
-
-              color: "#7A7A7A",
-
-              textShadow: `
-                1px 1px 0 #FFFFFF
-              `,
-            }}
-          >
-            Product & Motion Designer
-          </div>
+            textShadow: `
+              1px 1px 0 #FFFFFF
+            `,
+          }}
+        >
+          Product & Motion Designer
         </div>
 
-        {/* AI PLAYGROUND BUTTON */}
+        {/* MAIN BUTTON */}
 
         <button
           onClick={() => {
@@ -137,7 +120,6 @@ export default function HomePage() {
 
             fontSize: "42px",
             fontWeight: 400,
-            lineHeight: "1",
 
             whiteSpace: "nowrap",
 
@@ -158,30 +140,23 @@ export default function HomePage() {
             boxSizing: "border-box",
 
             cursor: "pointer",
-            userSelect: "none",
-
-            outline: "none",
-            appearance: "none",
-            WebkitAppearance: "none",
 
             minWidth: "720px",
+
+            userSelect: "none",
 
             transition: "background 0.05s linear",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#D9D9D9";
+            e.currentTarget.style.background = "#DADADA";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = "#E5E5E5";
 
-            e.currentTarget.style.borderTop =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderLeft =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderRight =
-              "12px solid #7A7A7A";
-            e.currentTarget.style.borderBottom =
-              "12px solid #7A7A7A";
+            e.currentTarget.style.borderTop = "12px solid #FFFFFF";
+            e.currentTarget.style.borderLeft = "12px solid #FFFFFF";
+            e.currentTarget.style.borderRight = "12px solid #7A7A7A";
+            e.currentTarget.style.borderBottom = "12px solid #7A7A7A";
 
             e.currentTarget.style.paddingTop = "40px";
             e.currentTarget.style.paddingLeft = "100px";
@@ -191,14 +166,10 @@ export default function HomePage() {
           onMouseDown={(e) => {
             e.currentTarget.style.background = "#CFCFCF";
 
-            e.currentTarget.style.borderTop =
-              "12px solid #7A7A7A";
-            e.currentTarget.style.borderLeft =
-              "12px solid #7A7A7A";
-            e.currentTarget.style.borderRight =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderBottom =
-              "12px solid #FFFFFF";
+            e.currentTarget.style.borderTop = "12px solid #7A7A7A";
+            e.currentTarget.style.borderLeft = "12px solid #7A7A7A";
+            e.currentTarget.style.borderRight = "12px solid #FFFFFF";
+            e.currentTarget.style.borderBottom = "12px solid #FFFFFF";
 
             e.currentTarget.style.paddingTop = "44px";
             e.currentTarget.style.paddingLeft = "104px";
@@ -209,14 +180,10 @@ export default function HomePage() {
           onMouseUp={(e) => {
             e.currentTarget.style.background = "#E5E5E5";
 
-            e.currentTarget.style.borderTop =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderLeft =
-              "12px solid #FFFFFF";
-            e.currentTarget.style.borderRight =
-              "12px solid #7A7A7A";
-            e.currentTarget.style.borderBottom =
-              "12px solid #7A7A7A";
+            e.currentTarget.style.borderTop = "12px solid #FFFFFF";
+            e.currentTarget.style.borderLeft = "12px solid #FFFFFF";
+            e.currentTarget.style.borderRight = "12px solid #7A7A7A";
+            e.currentTarget.style.borderBottom = "12px solid #7A7A7A";
 
             e.currentTarget.style.paddingTop = "40px";
             e.currentTarget.style.paddingLeft = "100px";
@@ -232,30 +199,15 @@ export default function HomePage() {
 
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "8px",
-            alignItems: "center",
+            marginTop: "60px",
+
+            color: "#9AA5B1",
+
+            fontSize: "42px",
+            fontWeight: 400,
           }}
         >
-          <div
-            style={{
-              color: "#919EAB",
-              fontSize: "42px",
-              fontWeight: 400,
-            }}
-          >
-            or hit spacebar for portfolio
-          </div>
-
-          <div
-            style={{
-              color: "#B5B5B5",
-              fontSize: "16px",
-            }}
-          >
-            Opens in a new tab
-          </div>
+          or hit spacebar for portfolio
         </div>
       </div>
     </main>
