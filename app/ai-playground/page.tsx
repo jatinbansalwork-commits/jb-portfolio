@@ -3,25 +3,31 @@
 import Image from "next/image";
 
 export default function AIPlaygroundPage() {
-  const projects = [
+  cconst projects = [
     {
       title: "DOODLELAB",
+      status: "PROTOTYPE",
+      category: "AI Design Tool",
       subtitle:
-        "Turn rough sketches into polished concepts with AI-powered doodling and rapid experimentation.",
+        "An early prototype exploring AI-assisted visual ideation and doodle generation.",
       image: "/thumbnails/motionlab-ai.png",
       url: "https://doodlelab-ai.vercel.app/",
     },
-
+  
     {
       title: "SUPER OPINION BROS",
+      status: "PLAYABLE",
+      category: "Multiplayer AI Game",
       subtitle:
         "A chaotic multiplayer opinion battle where hot takes decide your fate.",
       image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
     },
-
+  
     {
       title: "LOCK-IN POLICE",
+      status: "EXPERIMENT",
+      category: "Computer Vision Project",
       subtitle:
         "AI catches you touching your phone and tries to force productivity.",
       image: "/thumbnails/lock_in_police.png",
@@ -129,19 +135,38 @@ export default function AIPlaygroundPage() {
               {/* TITLE BAR */}
 
               <div
-                style={{
-                  background: "#000080",
-                  color: "#FFF",
+  style={{
+    background: "#000080",
+    color: "#FFF",
 
-                  padding: "10px 12px",
-                  marginBottom: "14px",
+    padding: "10px 12px",
+    marginBottom: "14px",
 
-                  fontWeight: 700,
-                  fontSize: "16px",
-                }}
-              >
-                {project.title}.exe
-              </div>
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+
+    fontWeight: 700,
+    fontSize: "16px",
+  }}
+>
+  <span>{project.title}.exe</span>
+
+  <span
+    style={{
+      background: "#C0C0C0",
+      color: "#000080",
+
+      padding: "2px 8px",
+
+      fontSize: "11px",
+      fontWeight: 700,
+      letterSpacing: "0.5px",
+    }}
+  >
+    {project.status}
+  </span>
+</div>
 
               {/* TITLE */}
 
@@ -214,13 +239,22 @@ export default function AIPlaygroundPage() {
                 }}
               >
                 <div
-                  style={{
-                    color: "#666",
-                    fontSize: "15px",
-                  }}
-                >
-                  Internet Experiment
-                </div>
+
+style={{
+
+  color: "#666",
+
+  fontSize: "15px",
+
+  fontWeight: 500,
+
+}}
+
+>
+
+{project.category}
+
+</div>
 
                 <a
                   href={project.url}
