@@ -38,12 +38,21 @@ export default function HomePage() {
     }
   };
 
-  // Button Navigation
+  // AI Playground Button
   const goToPlayground = () => {
     playClickSound();
 
     setTimeout(() => {
       router.push("/ai-playground");
+    }, 120);
+  };
+
+  // Portfolio Link
+  const goToPortfolio = () => {
+    playClickSound();
+
+    setTimeout(() => {
+      window.location.href = PORTFOLIO_URL;
     }, 120);
   };
 
@@ -61,12 +70,7 @@ export default function HomePage() {
 
       if (e.code === "Space") {
         e.preventDefault();
-
-        playClickSound();
-
-        setTimeout(() => {
-          window.location.href = PORTFOLIO_URL;
-        }, 120);
+        goToPortfolio();
       }
     };
 
@@ -82,14 +86,21 @@ export default function HomePage() {
       style={{
         minHeight: "100vh",
         background: "#FFFFFF",
+
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+
+        padding: "24px",
+
         fontFamily: "Arial, sans-serif",
+        boxSizing: "border-box",
       }}
     >
       <div
         style={{
+          width: "100%",
+          maxWidth: "1000px",
           textAlign: "center",
         }}
       >
@@ -98,10 +109,15 @@ export default function HomePage() {
         <h1
           style={{
             margin: 0,
-            fontSize: "96px",
+
+            fontSize: "clamp(52px, 10vw, 96px)",
             fontWeight: 700,
+
             color: "#8A8A8A",
+
             textShadow: "4px 4px 0 #FFFFFF",
+
+            lineHeight: 1,
           }}
         >
           Jatin Bansal
@@ -113,44 +129,80 @@ export default function HomePage() {
           style={{
             marginTop: "20px",
             marginBottom: "90px",
-            fontSize: "28px",
+
+            fontSize: "clamp(18px, 3vw, 28px)",
+
             color: "#8A8A8A",
           }}
         >
           Product & Motion Designer
         </p>
 
-        {/* PLAYGROUND BUTTON */}
+        {/* AI PLAYGROUND BUTTON */}
 
         <button
           onClick={goToPlayground}
           style={{
             background: "#E5E5E5",
-            color: "#000",
+            color: "#000000",
 
-            fontSize: "42px",
+            fontSize: "clamp(20px, 4vw, 42px)",
             fontWeight: 400,
+            lineHeight: "1",
+
+            whiteSpace: "nowrap",
 
             paddingTop: "40px",
             paddingBottom: "40px",
-            paddingLeft: "100px",
-            paddingRight: "100px",
+            paddingLeft: "32px",
+            paddingRight: "32px",
 
-            minWidth: "720px",
+            width: "100%",
+            maxWidth: "720px",
 
             borderTop: "12px solid #FFFFFF",
             borderLeft: "12px solid #FFFFFF",
             borderRight: "12px solid #7A7A7A",
             borderBottom: "12px solid #7A7A7A",
 
-            cursor: "pointer",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
 
+            boxSizing: "border-box",
+
+            cursor: "pointer",
+            userSelect: "none",
+
+            outline: "none",
             appearance: "none",
             WebkitAppearance: "none",
 
-            userSelect: "none",
+            transition: "background 0.05s linear",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#D9D9D9";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "#E5E5E5";
+
+            e.currentTarget.style.borderTop =
+              "12px solid #FFFFFF";
+            e.currentTarget.style.borderLeft =
+              "12px solid #FFFFFF";
+            e.currentTarget.style.borderRight =
+              "12px solid #7A7A7A";
+            e.currentTarget.style.borderBottom =
+              "12px solid #7A7A7A";
+
+            e.currentTarget.style.paddingTop = "40px";
+            e.currentTarget.style.paddingLeft = "32px";
+            e.currentTarget.style.paddingBottom = "40px";
+            e.currentTarget.style.paddingRight = "32px";
           }}
           onMouseDown={(e) => {
+            e.currentTarget.style.background = "#CFCFCF";
+
             e.currentTarget.style.borderTop =
               "12px solid #7A7A7A";
             e.currentTarget.style.borderLeft =
@@ -159,8 +211,15 @@ export default function HomePage() {
               "12px solid #FFFFFF";
             e.currentTarget.style.borderBottom =
               "12px solid #FFFFFF";
+
+            e.currentTarget.style.paddingTop = "44px";
+            e.currentTarget.style.paddingLeft = "36px";
+            e.currentTarget.style.paddingBottom = "36px";
+            e.currentTarget.style.paddingRight = "28px";
           }}
           onMouseUp={(e) => {
+            e.currentTarget.style.background = "#E5E5E5";
+
             e.currentTarget.style.borderTop =
               "12px solid #FFFFFF";
             e.currentTarget.style.borderLeft =
@@ -169,6 +228,11 @@ export default function HomePage() {
               "12px solid #7A7A7A";
             e.currentTarget.style.borderBottom =
               "12px solid #7A7A7A";
+
+            e.currentTarget.style.paddingTop = "40px";
+            e.currentTarget.style.paddingLeft = "32px";
+            e.currentTarget.style.paddingBottom = "40px";
+            e.currentTarget.style.paddingRight = "32px";
           }}
         >
           Push Button for AI Playground
@@ -176,15 +240,24 @@ export default function HomePage() {
 
         {/* HINT */}
 
-        <p
+        <div
           style={{
             marginTop: "80px",
-            fontSize: "32px",
+            fontSize: "clamp(18px, 3vw, 32px)",
             color: "#9AA3B0",
           }}
         >
-          or hit spacebar for portfolio
-        </p>
+          or hit spacebar for{" "}
+          <span
+            onClick={goToPortfolio}
+            style={{
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
+          >
+            portfolio
+          </span>
+        </div>
       </div>
     </main>
   );
