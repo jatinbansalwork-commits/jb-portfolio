@@ -86,13 +86,10 @@ export default function HomePage() {
       style={{
         minHeight: "100vh",
         background: "#FFFFFF",
-
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-
         padding: "24px",
-
         fontFamily: "Arial, sans-serif",
         boxSizing: "border-box",
       }}
@@ -109,14 +106,10 @@ export default function HomePage() {
         <h1
           style={{
             margin: 0,
-
             fontSize: "clamp(52px, 10vw, 96px)",
             fontWeight: 700,
-
             color: "#8A8A8A",
-
             textShadow: "4px 4px 0 #FFFFFF",
-
             lineHeight: 1,
           }}
         >
@@ -128,14 +121,26 @@ export default function HomePage() {
         <p
           style={{
             marginTop: "20px",
-            marginBottom: "90px",
-
+            marginBottom: "12px",
             fontSize: "clamp(18px, 3vw, 28px)",
-
             color: "#8A8A8A",
           }}
         >
-          Product & Motion Designer
+          Principal UX & Motion Designer
+        </p>
+
+        {/* DOMAINS */}
+
+        <p
+          style={{
+            margin: 0,
+            marginBottom: "90px",
+            fontSize: "clamp(13px, 2vw, 16px)",
+            letterSpacing: "0.5px",
+            color: "#A5A5A5",
+          }}
+        >
+          Cybersecurity • Fintech • AI Products
         </p>
 
         {/* AI PLAYGROUND BUTTON */}
@@ -238,7 +243,7 @@ export default function HomePage() {
           Push Button for AI Playground
         </button>
 
-        {/* HINT */}
+        {/* PORTFOLIO CTA */}
 
         <div
           style={{
@@ -247,7 +252,7 @@ export default function HomePage() {
             color: "#9AA3B0",
           }}
         >
-          or hit spacebar for{" "}
+          Press SPACE for Product{" "}
           <span
             onClick={goToPortfolio}
             style={{
@@ -255,8 +260,22 @@ export default function HomePage() {
               cursor: "pointer",
             }}
           >
-            portfolio
+            Portfolio
           </span>
+        </div>
+
+        {/* EASTER EGG */}
+
+        <div
+          style={{
+            marginTop: "90px",
+            fontSize: "12px",
+            color: "#C2C2C2",
+            letterSpacing: "1px",
+            userSelect: "none",
+          }}
+        >
+          JB.OS v1.0
         </div>
       </div>
     </main>

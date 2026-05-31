@@ -241,13 +241,9 @@ export default function AIPlaygroundPage() {
                 <div
 
 style={{
-
-  color: "#666",
-
-  fontSize: "15px",
-
-  fontWeight: 500,
-
+color: "#666",
+fontSize: "15px",
+fontWeight: 500,
 }}
 
 >
