@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 export default function AIPlaygroundPage() {
-  cconst projects = [
+  const projects = [
     {
       title: "DOODLELAB",
       status: "PROTOTYPE",
