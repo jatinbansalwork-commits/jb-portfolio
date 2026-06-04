@@ -5,6 +5,16 @@ import Image from "next/image";
 export default function AIPlaygroundPage() {
   const projects = [
     {
+      title: "LOCK-IN POLICE",
+      status: "EXPERIMENT",
+      category: "Computer Vision Project",
+      subtitle:
+        "AI catches you touching your phone and tries to force productivity.",
+      image: "/thumbnails/lock_in_police.png",
+      url: "https://lock-in-police.vercel.app/",
+    },
+   
+    {
       title: "DOODLELAB",
       status: "PROTOTYPE",
       category: "AI Design Tool",
@@ -24,15 +34,6 @@ export default function AIPlaygroundPage() {
       url: "https://super-opinion-bros.vercel.app/",
     },
   
-    {
-      title: "LOCK-IN POLICE",
-      status: "EXPERIMENT",
-      category: "Computer Vision Project",
-      subtitle:
-        "AI catches you touching your phone and tries to force productivity.",
-      image: "/thumbnails/lock_in_police.png",
-      url: "https://lock-in-police.vercel.app/",
-    },
   ];
 
   const playClick = () => {
