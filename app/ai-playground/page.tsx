@@ -10,7 +10,7 @@ export default function AIPlaygroundPage() {
       category: "Productivity Game",
       subtitle:
         "Turn work into a challenge. Stay focused, build streaks, and survive distractions.",
-      image: "/thumbnails/focus-mode.png",
+      image: "/thumbnails/focus-mode-new.png",
       url: "https://focus-mode-ten.vercel.app/",
     },
     
