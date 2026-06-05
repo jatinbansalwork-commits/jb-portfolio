@@ -5,12 +5,12 @@ import Image from "next/image";
 export default function AIPlaygroundPage() {
   const projects = [
     {
-      title: "FOCUS MODE",
+      title: "FocusFroggy",
       status: "EXPERIMENT",
       category: "Productivity Game",
       subtitle:
         "Turn work into a challenge. Stay focused, build streaks, and survive distractions.",
-      image: "/thumbnails/lock_in_police.png",
+      image: "/thumbnails/focus-mode.png",
       url: "https://focus-mode-ten.vercel.app/",
     },
     
