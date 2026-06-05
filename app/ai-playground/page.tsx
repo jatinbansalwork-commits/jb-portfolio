@@ -11,7 +11,7 @@ export default function AIPlaygroundPage() {
       subtitle:
         "Turn work into a challenge. Stay focused, build streaks, and survive distractions.",
       image: "/thumbnails/focus-mode.png",
-      url: "https://focus-mode.vercel.app/",
+      url: "https://focus-mode-ten.vercel.app/",
     },
     
     {
