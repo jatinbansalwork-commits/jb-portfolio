@@ -5,6 +5,16 @@ import Image from "next/image";
 export default function AIPlaygroundPage() {
   const projects = [
     {
+      title: "FOCUS MODE",
+      status: "EXPERIMENT",
+      category: "Productivity Game",
+      subtitle:
+        "Turn work into a challenge. Stay focused, build streaks, and survive distractions.",
+      image: "/thumbnails/focus-mode.png",
+      url: "https://focus-mode.vercel.app/",
+    },
+    
+    {
       title: "LOCK-IN POLICE",
       status: "EXPERIMENT",
       category: "Computer Vision Project",
@@ -13,7 +23,7 @@ export default function AIPlaygroundPage() {
       image: "/thumbnails/lock_in_police.png",
       url: "https://lock-in-police.vercel.app/",
     },
-   
+
     {
       title: "DOODLELAB",
       status: "PROTOTYPE",
@@ -23,7 +33,7 @@ export default function AIPlaygroundPage() {
       image: "/thumbnails/motionlab-ai.png",
       url: "https://doodlelab-ai.vercel.app/",
     },
-  
+
     {
       title: "SUPER OPINION BROS",
       status: "PLAYABLE",
@@ -33,7 +43,6 @@ export default function AIPlaygroundPage() {
       image: "/thumbnails/super-opinion-bros.png",
       url: "https://super-opinion-bros.vercel.app/",
     },
-  
   ];
 
   const playClick = () => {
@@ -68,18 +77,14 @@ export default function AIPlaygroundPage() {
           style={{
             background: "#000080",
             color: "#FFFFFF",
-
             padding: "12px 16px",
-
             borderTop: "2px solid #C0C0C0",
             borderLeft: "2px solid #C0C0C0",
             borderRight: "2px solid #000000",
             borderBottom: "2px solid #000000",
-
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-
             fontWeight: 700,
             fontSize: "20px",
           }}
@@ -124,50 +129,43 @@ export default function AIPlaygroundPage() {
               key={index}
               style={{
                 background: "#C0C0C0",
-
                 borderTop: "3px solid #FFFFFF",
                 borderLeft: "3px solid #FFFFFF",
                 borderRight: "3px solid #808080",
                 borderBottom: "3px solid #808080",
-
                 padding: "14px",
               }}
             >
               {/* TITLE BAR */}
 
               <div
-  style={{
-    background: "#000080",
-    color: "#FFF",
+                style={{
+                  background: "#000080",
+                  color: "#FFF",
+                  padding: "10px 12px",
+                  marginBottom: "14px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontWeight: 700,
+                  fontSize: "16px",
+                }}
+              >
+                <span>{project.title}.exe</span>
 
-    padding: "10px 12px",
-    marginBottom: "14px",
-
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-
-    fontWeight: 700,
-    fontSize: "16px",
-  }}
->
-  <span>{project.title}.exe</span>
-
-  <span
-    style={{
-      background: "#C0C0C0",
-      color: "#000080",
-
-      padding: "2px 8px",
-
-      fontSize: "11px",
-      fontWeight: 700,
-      letterSpacing: "0.5px",
-    }}
-  >
-    {project.status}
-  </span>
-</div>
+                <span
+                  style={{
+                    background: "#C0C0C0",
+                    color: "#000080",
+                    padding: "2px 8px",
+                    fontSize: "11px",
+                    fontWeight: 700,
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {project.status}
+                </span>
+              </div>
 
               {/* TITLE */}
 
@@ -189,7 +187,6 @@ export default function AIPlaygroundPage() {
                 style={{
                   marginTop: "10px",
                   marginBottom: "12px",
-
                   color: "#666",
                   fontSize: "17px",
                   lineHeight: 1.4,
@@ -204,16 +201,12 @@ export default function AIPlaygroundPage() {
                 style={{
                   width: "100%",
                   aspectRatio: "16 / 8",
-
                   position: "relative",
-
                   background: "#FFF",
-
                   borderTop: "3px solid #7A7A7A",
                   borderLeft: "3px solid #7A7A7A",
                   borderRight: "3px solid #FFFFFF",
                   borderBottom: "3px solid #FFFFFF",
-
                   overflow: "hidden",
                 }}
               >
@@ -233,25 +226,20 @@ export default function AIPlaygroundPage() {
               <div
                 style={{
                   marginTop: "10px",
-
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
                 }}
               >
                 <div
-
-style={{
-color: "#666",
-fontSize: "15px",
-fontWeight: 500,
-}}
-
->
-
-{project.category}
-
-</div>
+                  style={{
+                    color: "#666",
+                    fontSize: "15px",
+                    fontWeight: 500,
+                  }}
+                >
+                  {project.category}
+                </div>
 
                 <a
                   href={project.url}
@@ -266,17 +254,13 @@ fontWeight: 500,
                     style={{
                       background: "#C0C0C0",
                       color: "#000",
-
                       padding: "10px 22px",
-
                       fontSize: "17px",
                       cursor: "pointer",
-
                       borderTop: "2px solid #FFFFFF",
                       borderLeft: "2px solid #FFFFFF",
                       borderRight: "2px solid #808080",
                       borderBottom: "2px solid #808080",
-
                       appearance: "none",
                       WebkitAppearance: "none",
                     }}
